@@ -6,9 +6,8 @@ void main() {
   runApp(
     MaterialApp(
       title: "Frontloops 08",
-      theme: ThemeData.light().copyWith(
-        primaryColor: Colors.blue,
-        accentColor: Colors.red,
+      theme: ThemeData(
+        fontFamily: "Open Sans",
       ),
       routes: {
         "/": (context) => Main(),

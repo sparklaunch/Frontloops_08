@@ -65,6 +65,9 @@ flutter:
     - family: Open Sans
       fonts:
         - asset: assets/fonts/open_sans.ttf
+        - asset: assets/fonts/open_sans_bold.ttf
+        - asset: assets/fonts/open_sans_extrabold.ttf
+        - asset: assets/fonts/open_sans_light.ttf
   # fonts:
   #   - family: Schyler
   #     fonts:
