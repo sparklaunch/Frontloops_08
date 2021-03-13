@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 
 import "package:frontloops_08/Balance.dart";
+import "package:frontloops_08/constants.dart";
 
 class Price extends StatefulWidget {
   final BalanceType balanceType;
@@ -12,8 +13,9 @@ class Price extends StatefulWidget {
 
 class _PriceState extends State<Price> {
   Color priceColor;
-  double priceFontSize = 36.0;
-  Offset priceOffset = Offset(0, -8);
+  double fontSizeMultiplier = 0.6;
+  double priceFontSize = kPriceDefaultFontSize;
+  Offset priceOffset = kPriceDefaultOffset;
 
   @override
   Widget build(BuildContext context) {
@@ -25,16 +27,16 @@ class _PriceState extends State<Price> {
         break;
       case BalanceType.Expenditure:
         setState(() {
-          this.priceOffset = Offset(0, -5);
-          this.priceFontSize = 24.0;
-          this.priceColor = Color.fromRGBO(123, 141, 191, 1);
+          this.priceOffset = kPriceSmallOffset;
+          this.priceFontSize = kPriceSmallFontSize;
+          this.priceColor = kExpenditureColor;
         });
         break;
       case BalanceType.Income:
         setState(() {
-          this.priceOffset = Offset(0, -5);
-          this.priceFontSize = 24.0;
-          this.priceColor = Color.fromRGBO(126, 199, 85, 1);
+          this.priceOffset = kPriceSmallOffset;
+          this.priceFontSize = kPriceSmallFontSize;
+          this.priceColor = kIncomeColor;
         });
         break;
     }
@@ -54,7 +56,7 @@ class _PriceState extends State<Price> {
             child: Text(
               this.widget.price.toStringAsFixed(2).split(".").last.toString(),
               style: TextStyle(
-                fontSize: this.priceFontSize * 0.6,
+                fontSize: this.priceFontSize * this.fontSizeMultiplier,
                 fontWeight: FontWeight.bold,
                 color: this.priceColor,
               ),

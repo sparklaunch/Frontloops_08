@@ -1,6 +1,8 @@
 import "package:flutter/material.dart";
 import "package:frontloops_08/Wallet.dart";
 
+import "package:frontloops_08/constants.dart";
+
 class CardItem extends StatefulWidget {
   final Wallet child;
   CardItem({@required this.child});
@@ -15,18 +17,18 @@ class _CardItemState extends State<CardItem> {
   Widget build(BuildContext context) {
     if (this.widget.child.isActive()) {
       setState(() {
-        this.borderWidth = 3.0;
-        this.borderColor = Color.fromRGBO(125, 136, 190, 1);
+        this.borderWidth = kActiveCardBorderWidth;
+        this.borderColor = kActiveCardBorderColor;
       });
     } else {
       setState(() {
-        this.borderWidth = 1.0;
-        this.borderColor = Color.fromRGBO(216, 216, 216, 1);
+        this.borderWidth = kInactiveCardBorderWidth;
+        this.borderColor = kInactiveCardBorderColor;
       });
     }
     return Container(
-      margin: EdgeInsets.only(bottom: 30.0),
-      padding: EdgeInsets.all(20.0),
+      margin: kCardMargin,
+      padding: kCardPadding,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,23 +37,15 @@ class _CardItemState extends State<CardItem> {
             "./assets/images/${this.widget.child.getImage()}",
             scale: 8.0,
           ),
-          SizedBox(height: 20.0),
+          kGapBetweenCardAndText,
           Text(
             this.widget.child.getCardNumber(),
-            style: TextStyle(
-              fontSize: 24.0,
-              color: Color.fromRGBO(105, 105, 105, 1),
-              fontWeight: FontWeight.bold,
-            ),
+            style: kCardNumberTextStyle,
           ),
-          SizedBox(height: 10.0),
+          kGapBetweenTextAndExpireDate,
           Text(
             "Valid thru: ${this.widget.child.getExpireDate()}",
-            style: TextStyle(
-              fontSize: 20.0,
-              color: Color.fromRGBO(105, 105, 105, 1),
-              fontWeight: FontWeight.bold,
-            ),
+            style: kExpireDateTextStyle,
           ),
         ],
       ),

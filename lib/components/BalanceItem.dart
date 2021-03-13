@@ -3,6 +3,7 @@ import "package:intl/intl.dart";
 
 import "package:frontloops_08/Balance.dart";
 import "package:frontloops_08/components/Price.dart";
+import "package:frontloops_08/constants.dart";
 
 class BalanceItem extends StatelessWidget {
   final dateFormat = DateFormat("dd MMMM yyyy");
@@ -11,48 +12,30 @@ class BalanceItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(
-        vertical: 30.0,
-      ),
+      padding: kBalanceItemPadding,
       child: Row(
         children: [
           Container(
-            width: 35.0,
-            height: 35.0,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              border: Border.all(
-                color: Color.fromRGBO(218, 218, 218, 1),
-              ),
-            ),
+            width: kBalanceItemWidth,
+            height: kBalanceItemWidth,
+            decoration: kBalanceItemSignBoxDecoration,
             child: Image.asset(
               "./assets/images/${this.child.getBalanceType() == BalanceType.Expenditure ? "minus.png" : "plus.png"}",
             ),
           ),
-          SizedBox(
-            width: 40.0,
-          ),
+          kGapBetweenSignAndContent,
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   this.child.getDescription(),
-                  style: TextStyle(
-                    fontSize: 24.0,
-                    fontWeight: FontWeight.w900,
-                  ),
+                  style: kBalanceItemTitleTextStyle,
                 ),
-                SizedBox(
-                  height: 5.0,
-                ),
+                kGapBetweenBalanceItemTexts,
                 Text(
                   "${this.child.getBalanceCategory().toString().split(".").last} #${this.child.getCode()} - ${this.dateFormat.format(this.child.getDate())}",
-                  style: TextStyle(
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.bold,
-                    color: Color.fromRGBO(173, 173, 173, 1),
-                  ),
+                  style: kBalanceItemSubtitleTextStyle,
                 ),
               ],
             ),

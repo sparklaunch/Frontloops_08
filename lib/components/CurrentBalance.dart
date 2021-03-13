@@ -3,6 +3,7 @@ import "package:flutter/material.dart";
 import "package:frontloops_08/Balance.dart";
 import "package:frontloops_08/components/BalanceItem.dart";
 import "package:frontloops_08/components/Price.dart";
+import 'package:frontloops_08/constants.dart';
 
 class CurrentBalance extends StatelessWidget {
   final List<Balance> balances;
@@ -21,7 +22,7 @@ class CurrentBalance extends StatelessWidget {
     }
 
     return Container(
-      padding: EdgeInsets.all(50.0),
+      padding: kCurrentBalancePadding,
       color: Colors.white,
       child: Column(
         children: [
@@ -30,20 +31,15 @@ class CurrentBalance extends StatelessWidget {
             children: [
               Text(
                 "Current Balance",
-                style: TextStyle(
-                  fontSize: 30.0,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: kCurrentBalanceTextStyle,
               ),
               Price(
                 price: getTotal(),
               ),
             ],
           ),
-          SizedBox(height: 50.0),
-          Divider(
-            color: Color.fromRGBO(217, 217, 217, 1),
-          ),
+          kGapBetweenTitleAndDivider,
+          kCurrentBalanceDivider,
           ListView.builder(
             padding: EdgeInsets.zero,
             itemBuilder: (BuildContext context, int index) {

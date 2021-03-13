@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 
 import "package:frontloops_08/Wallet.dart";
 import "package:frontloops_08/components/CardItem.dart";
+import "package:frontloops_08/constants.dart";
 
 class WalletList extends StatelessWidget {
   final List<Wallet> wallets;
@@ -9,8 +10,8 @@ class WalletList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(50.0),
-      color: Color.fromRGBO(240, 240, 240, 1),
+      padding: kWalletListPadding,
+      color: kWalletListColor,
       child: Column(
         children: [
           Row(
@@ -18,10 +19,7 @@ class WalletList extends StatelessWidget {
             children: [
               Text(
                 "My Wallets",
-                style: TextStyle(
-                  fontSize: 30.0,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: kMyWalletsTextStyle,
               ),
               Image.asset(
                 "./assets/images/plus.png",
@@ -29,7 +27,7 @@ class WalletList extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 50.0),
+          kGapBetweenWalletTitleAndListView,
           ListView.builder(
             shrinkWrap: true,
             itemBuilder: (BuildContext context, int index) => CardItem(
