@@ -51,4 +51,7 @@ class BalanceBrain {
       amount: 30.0,
     ),
   ];
+  List<Balance> getBalances() {
+    return this._balances;
+  }
 }
