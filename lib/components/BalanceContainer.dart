@@ -9,6 +9,8 @@ class BalanceContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: kContainerWidth,
+      height: 600.0,
+      clipBehavior: Clip.hardEdge,
       child: Row(
         children: [
           Expanded(

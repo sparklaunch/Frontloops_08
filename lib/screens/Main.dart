@@ -22,11 +22,15 @@ class Main extends StatelessWidget {
       backgroundColor: kBackgroundColor,
       body: Center(
         child: BalanceContainer(
-          left: WalletList(
-            wallets: wallets,
+          left: SingleChildScrollView(
+            child: WalletList(
+              wallets: wallets,
+            ),
           ),
-          right: CurrentBalance(
-            balances: balances,
+          right: SingleChildScrollView(
+            child: CurrentBalance(
+              balances: balances,
+            ),
           ),
         ),
       ),
