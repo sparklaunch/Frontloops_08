@@ -11,8 +11,14 @@ class BalanceContainer extends StatelessWidget {
       width: kContainerWidth,
       child: Row(
         children: [
-          this.left,
-          this.right,
+          Expanded(
+            flex: 3,
+            child: this.left,
+          ),
+          Expanded(
+            flex: 5,
+            child: this.right,
+          ),
         ],
       ),
       decoration: kContainerBoxDecoration,
